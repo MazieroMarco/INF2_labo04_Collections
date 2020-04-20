@@ -29,7 +29,7 @@ class Collection {
 public:
     void ajouter(const T& objet);
     size_t taille() const;
-    T& get(size_t id) const;
+    T& get(size_t id);
     bool contient(const T& objet) const;
     void vider();
 private:
@@ -47,14 +47,17 @@ size_t Collection<T, Conteneur>::taille() const {
 }
 
 template <typename T, template <typename...> class Conteneur>
-T& Collection<T, Conteneur>::get(size_t id) const {
-    if (id < 0 || id >= data.size()) {throw IndiceNonValide("IndiceNonValide");}
+T& Collection<T, Conteneur>::get(size_t id) {
+    if (id < 0 || id >= data.size()) {
+        throw IndiceNonValide("Erreur dans Collection::get :\n"
+                              "n doit etre strictement plus petit que collection.size()");
+    }
     return data.at(id);
 }
 
 template <typename T, template <typename...> class Conteneur>
 bool Collection<T, Conteneur>::contient(const T& objet) const {
-    return std::find(data.begin(), data.end(), objet) != data.end;
+    return std::find(data.begin(), data.end(), objet) != data.end();
 }
 
 template <typename T, template <typename...> class Conteneur>
