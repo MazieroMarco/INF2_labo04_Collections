@@ -1,7 +1,14 @@
-//
-// Created by Marco on 20.04.2020.
-//
-
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : collection_g.h
+ Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
+ Date        : 21.04.2020
+ But         : Fichier d'implémentation de la class générique Collection.
+ Remarque(s) : 
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
 #ifndef COLLECTION_G_H
 #define COLLECTION_G_H
 

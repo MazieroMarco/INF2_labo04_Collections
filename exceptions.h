@@ -1,6 +1,15 @@
-//
-// Created by Daniel on 20.04.2020.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : exceptions.h
+ Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
+ Date        : 21.04.2020
+ But         : Fichier de l'implémentation des excpetions pour les classes Produit et
+               Collection.
+ Remarque(s) : 
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
 
 #ifndef EXCEPTIONS_H
 #define EXCEPTIONS_H

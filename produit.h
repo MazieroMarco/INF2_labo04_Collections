@@ -1,6 +1,14 @@
-//
-// Created by Daniel on 20.04.2020.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : produit.h
+ Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
+ Date        : 21.04.2020
+ But         : Fichier en-tête de la classe Produit.
+ Remarque(s) : 
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
 
 #ifndef PRODUIT_H
 #define PRODUIT_H
@@ -9,27 +17,11 @@
 #include <string>
 #include "exceptions.h"
 
-// séparer déclarations et définitions
 class Produit{
-    friend std::ostream& operator<<(std::ostream& os, const Produit& p){
-        return os << "(" << p.no << ", \"" << p.label << "\", " << p.prix << ")";
-    }
+    friend std::ostream& operator<<(std::ostream& os, const Produit& p);
 public:
-    Produit(size_t no, const char* label, double prix) {
-        if (prix < PRIX_MIN){
-            throw PrixNonValide("Erreur dans Produit::Produit :\n"  // + string(__func__) +
-                                "le prix doit etre >= " + std::to_string(static_cast<int>(PRIX_MIN*100)) + " cts !"); // à voir si créer prix min en cts déjà
-        }
-        this->no = no;
-        this->label = label;
-        this->prix = prix;
-    }
-    void setPrix(double prix) {
-        if (prix < PRIX_MIN){
-            throw PrixNonValide("Erreur dans Produit::setPrix :\n"
-                                "le prix doit etre >= " + std::to_string(static_cast<int>(PRIX_MIN*100)) + " cts !");
-        }
-        this->prix = prix;}
+    Produit(size_t no, const char* label, double prix);
+    void setPrix(double prix);
 private:
     size_t no;
     const char* label;
