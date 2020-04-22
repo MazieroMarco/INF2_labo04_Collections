@@ -17,9 +17,9 @@
 #include <iostream>
 #include "exceptions.h"
 
-template <typename T, template <typename...> class Conteneur> class Collection;
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur> class Collection;
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) {
     os << "[";
     for (size_t i = 0; i < rhs.data.size(); ++i) {
@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) 
     return os;
 }
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 class Collection {
     friend std::ostream& operator<< <>(std::ostream& os, const Collection& rhs);
 public:
@@ -43,17 +43,17 @@ private:
     Conteneur<T> data;
 };
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 void Collection<T, Conteneur>::ajouter(const T& objet) {
     data.push_back(objet);
 }
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 size_t Collection<T, Conteneur>::taille() const {
     return data.size();
 }
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 T& Collection<T, Conteneur>::get(size_t id) {
     if (id < 0 || id >= data.size()) {
         throw IndiceNonValide("Erreur dans Collection::get :\n"
@@ -62,12 +62,12 @@ T& Collection<T, Conteneur>::get(size_t id) {
     return data.at(id);
 }
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 bool Collection<T, Conteneur>::contient(const T& objet) const {
     return std::find(data.begin(), data.end(), objet) != data.end();
 }
 
-template <typename T, template <typename...> class Conteneur>
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 void Collection<T, Conteneur>::vider() {
     data.clear();
 }
