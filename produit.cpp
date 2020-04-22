@@ -48,11 +48,3 @@ void Produit::majorationPourcentagePrix(const double &pourcentage)
       prix += prix / 100.0 * pourcentage;
    }
 };
-
-void Produit::diminutionPourcentagePrix(const double &pourcentage)
-{
-   if (pourcentage > 0.0)
-   {
-      prix -= prix / 100.0 * pourcentage;
-   }
-};
