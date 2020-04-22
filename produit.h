@@ -19,6 +19,7 @@
 
 class Produit{
     friend std::ostream& operator<<(std::ostream& os, const Produit& p);
+    friend bool operator==(const Produit& p1, const Produit& p2);
 public:
     Produit(size_t no, const char* label, double prix);
     void setPrix(double prix);
