@@ -32,6 +32,4 @@ private:
     static const double PRIX_MIN;
 };
 
-const double Produit::PRIX_MIN = 0.05;
-
 #endif //PRODUIT_H

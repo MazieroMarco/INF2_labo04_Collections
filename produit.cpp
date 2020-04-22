@@ -12,6 +12,8 @@
 
 #include "produit.h"
 
+const double Produit::PRIX_MIN = 0.05;
+
 Produit::Produit(size_t no, const char *label, double prix)
 {
    if (prix < PRIX_MIN)
@@ -53,12 +55,4 @@ void Produit::majorationPourcentagePrix(const double &pourcentage)
    {
       prix += prix / 100.0 * pourcentage;
    }
-};
-
-void Produit::diminutionPourcentagePrix(const double &pourcentage)
-{
-   if (pourcentage > 0.0)
-   {
-      prix -= prix / 100.0 * pourcentage;
-   }
-};
+}
