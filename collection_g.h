@@ -40,6 +40,9 @@ public:
     T& get(size_t id);
     bool contient(const T& objet) const;
     void vider();
+
+    template <typename fonction>
+    void parcourir(fonction f, int maj);
 private:
     Conteneur<T> data;
 };
@@ -73,4 +76,28 @@ void Collection<T, Conteneur>::vider() {
     data.clear();
 }
 
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
+template<typename fonction>
+void Collection<T, Conteneur>::parcourir(fonction f, int maj) {
+    for (auto it = data.begin(); it != data.end(); ++it) {
+        f(maj, *it);
+    }
+}
+/*
+template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
+void Collection<T, Conteneur>::parcourir() {
+    for (auto it = data.begin(); it != data.end(); ++it) {
+    }
+}
+
+
+template < typename InputIterator,
+        typename OutputRandomAccessIterator,
+        typename KeyFunction >
+void countingSort( InputIterator input_first,
+                   InputIterator input_last,
+                   OutputRandomAccessIterator output_first,
+                   size_t number_of_keys,
+                   KeyFunction key )
+                   */
 #endif // COLLECTION_G_H

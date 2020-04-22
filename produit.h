@@ -23,7 +23,8 @@ class Produit{
 public:
     Produit(size_t no, const char* label, double prix);
     void setPrix(double prix);
-    void majorationPourcentagePrix(const double &pourcentage);
+    double getPrix() const;
+    static void majorationPourcentagePrix(double pourcentage, Produit& p);
 private:
     size_t no;
     const char* label;
