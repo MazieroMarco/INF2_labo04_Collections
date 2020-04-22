@@ -15,6 +15,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include "exceptions.h"
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur> class Collection;
@@ -22,9 +23,9 @@ template <typename T, template <typename, typename = std::allocator<T>> class Co
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) {
     os << "[";
-    for (size_t i = 0; i < rhs.data.size(); ++i) {
-        if (i) {os << ", ";}
-        os << rhs.data[i];
+    for (auto it = rhs.data.begin(); it != rhs.data.end(); ++it) {
+        if (it != rhs.data.begin()) {os << ", ";}
+        os << *it;
     }
     os << "]";
     return os;
@@ -59,7 +60,7 @@ T& Collection<T, Conteneur>::get(size_t id) {
         throw IndiceNonValide("Erreur dans Collection::get :\n"
                               "n doit etre strictement plus petit que collection.size()");
     }
-    return data.at(id);
+    return *(std::next(data.begin(), (int)id));
 }
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
