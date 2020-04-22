@@ -41,6 +41,12 @@ std::ostream &operator<<(std::ostream &os, const Produit &p)
    return os << "(" << p.no << ", \"" << p.label << "\", " << p.prix << ")";
 }
 
+bool operator==(const Produit& p1, const Produit& p2) {
+    return (p1.no == p2.no &&
+            p1.label == p2.label &&
+            p1.prix == p2.prix);
+}
+
 void Produit::majorationPourcentagePrix(const double &pourcentage)
 {
    if (pourcentage > 0.0)

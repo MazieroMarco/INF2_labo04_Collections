@@ -24,7 +24,7 @@ std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) 
     os << "[";
     for (size_t i = 0; i < rhs.data.size(); ++i) {
         if (i) {os << ", ";}
-        os << rhs.data.at(i);
+        os << rhs.data[i];
     }
     os << "]";
     return os;
