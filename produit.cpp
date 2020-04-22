@@ -41,10 +41,18 @@ std::ostream &operator<<(std::ostream &os, const Produit &p)
    return os << "(" << p.no << ", \"" << p.label << "\", " << p.prix << ")";
 }
 
-void Produit::majorationPrix(const double &pourcentage)
+void Produit::majorationPourcentagePrix(const double &pourcentage)
 {
    if (pourcentage > 0.0)
    {
       prix += prix / 100.0 * pourcentage;
+   }
+};
+
+void Produit::diminutionPourcentagePrix(const double &pourcentage)
+{
+   if (pourcentage > 0.0)
+   {
+      prix -= prix / 100.0 * pourcentage;
    }
 };
