@@ -32,7 +32,7 @@ public:
     void vider();
 
     template <typename Operation>
-    void parcourir(Operation operation, double pourcentage);
+    void parcourir(Operation operation);
 private:
     Conteneur<T> data;
 };

@@ -48,8 +48,10 @@ bool operator==(const Produit &p1, const Produit &p2) {
             p1.prix == p2.prix);
 }
 
-void Produit::majorationPourcentagePrix(Produit& p, double pourcentage) {
-    if (pourcentage > 0.0) {
-        p.setPrix(p.getPrix() * (1 + pourcentage / 100));
-    }
-}
+//template <unsigned Pourcentage>
+//Produit majorationPourcentagePrix(Produit& p) {
+//    if (Pourcentage > 0.0) {
+//        p.setPrix(p.getPrix() * (1 + Pourcentage / 100.0));
+//    }
+//    return p;
+//}

@@ -12,6 +12,8 @@
 #ifndef COLLECTION_G_IMPL_H
 #define COLLECTION_G_IMPL_H
 
+#include <algorithm>
+
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) {
     os << "[";
@@ -54,11 +56,12 @@ void Collection<T, Conteneur>::vider() {
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 template<typename Operation>
-void Collection<T, Conteneur>::parcourir(Operation operation, double pourcentage) {
-    for (auto it = data.begin(); it != data.end(); ++it) {
-        // Applique la fonction au produit
-        operation(*it, pourcentage);
-    }
+void Collection<T, Conteneur>::parcourir(Operation operation) {
+//    for (auto it = data.begin(); it != data.end(); ++it) {
+//        // Applique la fonction au produit
+//        operation(*it);
+//    }
+    std::transform(this->data.begin(), this->data.end(), this->data.begin(), operation);
 }
 
 #endif //PROJET_COLLECTION_G_IMPL_H
