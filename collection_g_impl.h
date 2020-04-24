@@ -4,14 +4,17 @@
  Fichier     : collection_g_impl.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Fichier d'implémentation de la class générique Collection.
- Remarque(s) :
+ But         : Fichier d'implémentation de la classe générique Collection.
+ Remarque(s) : La fonction parcourir permet d'executer une fonction passée en paramètre
+               sur tous les éléments de la collection en y appliquant un coefficient.
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
 #ifndef COLLECTION_G_IMPL_H
 #define COLLECTION_G_IMPL_H
-#include "collection_g.h"
+
+#include <iterator>
+#include "exceptions.h"
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) {
@@ -55,9 +58,9 @@ void Collection<T, Conteneur>::vider() {
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 template<typename UnaryOperation>
-void Collection<T, Conteneur>::parcourir(UnaryOperation operation, double facteur) {
+void Collection<T, Conteneur>::parcourir(UnaryOperation operation, double coefficient) {
     for (T& i : this->data) {
-        operation(i, facteur);
+        operation(i, coefficient);
     }
 }
 

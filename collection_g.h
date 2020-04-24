@@ -4,17 +4,15 @@
  Fichier     : collection_g.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Contient les définitions de la  de la class générique Collection.
- Remarque(s) : 
+ But         : Contient les définitions de la  de la classe générique Collection.
+ Remarque(s) : -
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
 #ifndef COLLECTION_G_H
 #define COLLECTION_G_H
 
-#include <algorithm>
 #include <iostream>
-#include "exceptions.h"
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur> class Collection;
 
@@ -32,7 +30,7 @@ public:
     void vider();
 
     template <typename UnaryOperation>
-    void parcourir(UnaryOperation operation, double facteur);
+    void parcourir(UnaryOperation operation, double coefficient);
 private:
     Conteneur<T> data;
 };
