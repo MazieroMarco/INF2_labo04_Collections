@@ -27,18 +27,18 @@
 #include "exceptions.h"
 
 class Produit {
-    friend void majorationPrixEnPourcent(Produit& p, double pourcentage);
-    friend std::ostream& operator<<(std::ostream& os, const Produit& p);
-    friend bool operator==(const Produit& p1, const Produit& p2);
+   friend void majorationPrixEnPourcent(Produit& p, double pourcentage);
+   friend std::ostream& operator<<(std::ostream& os, const Produit& p);
+   friend bool operator==(const Produit& p1, const Produit& p2);
 public:
-    Produit(size_t no, const char* label, double prix);
-    void setPrix(double prix);
+   Produit(size_t no, const char* label, double prix);
+   void setPrix(double prix);
 private:
-    size_t no;
-    const char* label;
-    double prix; // Prix en francs
-    static const double PRIX_MIN; // Prix en francs, minimum autorisé pour un Produit
-    static const unsigned NB_CENTIMES_DANS_FRANC;
+   size_t no;
+   const char* label;
+   double prix; // Prix en francs
+   static const double PRIX_MIN; // Prix en francs, minimum autorisé pour un Produit
+   static const unsigned NB_CENTIMES_DANS_FRANC;
 };
 
 void majorationPrixEnPourcent(Produit& p, double pourcentage);

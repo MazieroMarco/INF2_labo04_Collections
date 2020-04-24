@@ -24,16 +24,24 @@
 #include <stdexcept>
 #include <string>
 
-class Indice_Non_Valide: public std::logic_error {
+class Indice_Non_Valide : public std::logic_error {
 public:
-    explicit Indice_Non_Valide(const std::string& what_arg) : logic_error(what_arg) {}
-    explicit Indice_Non_Valide(const char* what_arg) : logic_error(what_arg) {}
+
+   explicit Indice_Non_Valide(const std::string& what_arg) : logic_error(what_arg) {
+   }
+
+   explicit Indice_Non_Valide(const char* what_arg) : logic_error(what_arg) {
+   }
 };
 
 class Prix_Non_Valide : public std::logic_error {
 public:
-    explicit Prix_Non_Valide(const std::string& what_arg) : logic_error(what_arg) {}
-    explicit Prix_Non_Valide(const char* what_arg) : logic_error(what_arg) {}
+
+   explicit Prix_Non_Valide(const std::string& what_arg) : logic_error(what_arg) {
+   }
+
+   explicit Prix_Non_Valide(const char* what_arg) : logic_error(what_arg) {
+   }
 };
 
 #endif // EXCEPTIONS_H
