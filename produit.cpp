@@ -4,8 +4,8 @@
  Fichier     : produit.cpp
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Fichier implémentation de la classe Produit.
- Remarque(s) : 
+ But         : Implémentation de la classe Produit.
+ Remarque(s) : /
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
@@ -51,9 +51,8 @@ bool operator==(const Produit &p1, const Produit &p2) {
             p1.prix == p2.prix);
 }
 
-Produit majorationPrixEnPourcent(Produit &p, double pourcentage) {
+void majorationPrixEnPourcent(Produit &p, double pourcentage) {
     if (pourcentage > 0.) {
         p.setPrix((p.prix * (1 + pourcentage / 100.)));
     }
-    return p;
 }
