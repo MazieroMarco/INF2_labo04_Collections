@@ -41,12 +41,12 @@ void Collection<T, Conteneur>::ajouter(const T& objet){
 }
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-size_t Collection<T, Conteneur>::taille() const{
+size_t Collection<T, Conteneur>::taille() const noexcept {
    return data.size();
 }
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-T& Collection<T, Conteneur>::get(size_t id){
+T& Collection<T, Conteneur>::get(size_t id) {
    if (id < 0 || id >= data.size()) {
       throw Indice_Non_Valide("Erreur dans Collection::get :\n"
                               "n doit etre strictement plus petit que collection.size()");
@@ -55,12 +55,12 @@ T& Collection<T, Conteneur>::get(size_t id){
 }
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-bool Collection<T, Conteneur>::contient(const T& objet) const{
+bool Collection<T, Conteneur>::contient(const T& objet) const {
    return std::find(data.begin(), data.end(), objet) != data.end();
 }
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-void Collection<T, Conteneur>::vider(){
+void Collection<T, Conteneur>::vider() noexcept{
    data.clear();
 }
 

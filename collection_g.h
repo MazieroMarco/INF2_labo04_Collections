@@ -36,10 +36,10 @@ class Collection {
    friend std::ostream& operator<< <>(std::ostream& os, const Collection& rhs);
 public:
    void ajouter(const T& objet);
-   size_t taille() const;
+   size_t taille() const noexcept;
    T& get(size_t id);
    bool contient(const T& objet) const;
-   void vider();
+   void vider() noexcept;
 
    template <typename UnaryOperation>
    void parcourir(UnaryOperation operation, double coefficient);

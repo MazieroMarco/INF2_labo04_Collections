@@ -21,7 +21,8 @@ Produit::Produit(size_t no, const char *label, double prix) {
    if (prix < PRIX_MIN) {
       throw Prix_Non_Valide("Erreur dans Produit::Produit :\n"
                             "le prix doit etre >= " +
-                            std::to_string(static_cast<unsigned> (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
+                            std::to_string(static_cast<unsigned>
+                            (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
                             + " cts !");
    }
    this->no = no;
@@ -33,7 +34,8 @@ void Produit::setPrix(double prix) {
    if (prix < PRIX_MIN) {
       throw Prix_Non_Valide("Erreur dans Produit::setPrix :\n"
                             "le prix doit etre >= " +
-                            std::to_string(static_cast<unsigned> (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
+                            std::to_string(static_cast<unsigned>
+                            (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
                             + " cts !");
    }
    this->prix = prix;
@@ -45,7 +47,7 @@ std::ostream &operator<<(std::ostream &os, const Produit &p) {
            << std::setprecision(LARGEUR) << std::fixed << p.prix << ")";
 }
 
-bool operator==(const Produit &p1, const Produit &p2) {
+bool operator==(const Produit &p1, const Produit &p2) noexcept {
    return (p1.no == p2.no &&
            p1.label == p2.label &&
            p1.prix == p2.prix);

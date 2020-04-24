@@ -29,7 +29,7 @@
 class Produit {
    friend void majorationPrixEnPourcent(Produit& p, double pourcentage);
    friend std::ostream& operator<<(std::ostream& os, const Produit& p);
-   friend bool operator==(const Produit& p1, const Produit& p2);
+   friend bool operator==(const Produit& p1, const Produit& p2) noexcept;
 public:
    Produit(size_t no, const char* label, double prix);
    void setPrix(double prix);
