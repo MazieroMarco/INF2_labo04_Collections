@@ -14,6 +14,7 @@
 #define COLLECTION_G_IMPL_H
 
 #include <iterator>
+#include <algorithm>
 #include "exceptions.h"
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
