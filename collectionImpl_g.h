@@ -4,8 +4,15 @@
  Fichier     : collectionImpl_g.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Implémentation de la classe générique Collection.
- Remarque(s) : /
+ But         : Implémentation des fonctions contenues dans la classe
+               générique Collection.
+ Remarque(s) : Spécificités de l'implémentation:
+                    - La fonction std::next() de la librairie <algorithm>
+                      est utilisée pour parcourir le conteneur afin
+                      d'y récupérer un élément.
+                    - Les itérateurs sont utilisés dans ce contexte car
+                      les conteneurs peuvent être de différents types
+                      (par ex. vector ou list).
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */

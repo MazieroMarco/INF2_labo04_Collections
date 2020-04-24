@@ -4,11 +4,18 @@
  Fichier     : collection_g.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Mettre à disposition une classe générique Collection permettant de créer
-               des conteneur de type quelconque. Cette classe met à disposition :
-               -
- Remarque(s) : La fonction parcourir permet d'executer une fonction passée en paramètre
-               sur tous les éléments de la collection en y appliquant un coefficient.
+ But         : Définition de la classe Collection permettant le stockage d'objets
+               de type quelconque dans un conteneur de type quelconque.
+
+ Remarque(s) : La classe Collection contient des fonctions membres permmetant:
+                    - L'ajout d'un objet dans le conteneur de la collection.
+                    - Récupérer le nombre d'objets contenus dans le conteneur.
+                    - Récupérer un objet du conteneur par son index.
+                    - Chercher si le conteneur contient un objet spécifique.
+                    - Vider totalement le conteneur.
+                    - Parcourir le conteneur pour y executer une fonction passée
+                      en paramètre qui va modifier les objets du conteneur en
+                      leur appliquant un coefficient réel.
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
