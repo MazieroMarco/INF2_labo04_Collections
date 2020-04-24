@@ -39,8 +39,6 @@ void Produit::setPrix(double prix)
    this->prix = prix;
 }
 
-double Produit::getPrix() const { return prix; }
-
 std::ostream &operator<<(std::ostream &os, const Produit &p)
 {
    return os << "(" << p.no << ", \"" << p.label << "\", " << std::setprecision(2) << std::fixed << p.prix << ")";
@@ -52,10 +50,9 @@ bool operator==(const Produit& p1, const Produit& p2) {
             p1.prix == p2.prix);
 }
 
-void Produit::majorationPourcentagePrix(double pourcentage, Produit& p)
-{
-   if (pourcentage > 0.0)
-   {
-       p.setPrix(p.getPrix() * (1 + pourcentage / 100));
-   }
+Produit majorationPourcentagePrix(Produit& p, double pourcentage) {
+    if (pourcentage > 0.) {
+        p.setPrix((p.prix * (1 + pourcentage / 100.)));
+    }
+    return p;
 }

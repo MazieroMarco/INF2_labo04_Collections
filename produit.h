@@ -17,19 +17,20 @@
 #include <string>
 #include "exceptions.h"
 
-class Produit{
+class Produit {
+    friend Produit majorationPourcentagePrix(Produit& p, double pourcentage);
     friend std::ostream& operator<<(std::ostream& os, const Produit& p);
     friend bool operator==(const Produit& p1, const Produit& p2);
 public:
     Produit(size_t no, const char* label, double prix);
     void setPrix(double prix);
-    double getPrix() const;
-    static void majorationPourcentagePrix(double pourcentage, Produit& p);
 private:
     size_t no;
     const char* label;
     double prix; // Prix en francs
     static const double PRIX_MIN; // Prix en francs
 };
+
+Produit majorationPourcentagePrix(Produit& p, double pourcentage);
 
 #endif //PRODUIT_H

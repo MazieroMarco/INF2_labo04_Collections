@@ -31,8 +31,8 @@ public:
     bool contient(const T& objet) const;
     void vider();
 
-    template <typename Operation>
-    void parcourir(Operation operation, double pourcentage);
+    template <typename UnaryOperation>
+    void parcourir(UnaryOperation operation, double facteur);
 private:
     Conteneur<T> data;
 };

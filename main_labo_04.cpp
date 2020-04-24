@@ -80,7 +80,7 @@ int main() {
                 const double majorationPrix = 10;
                               // On parcourt la collection en majorant le prix de chacun
                               // des produits de 10%
-                              c.parcourir(Produit::majorationPourcentagePrix, majorationPrix);
+                              c.parcourir(majorationPourcentagePrix, majorationPrix);
                 cout << c << " (taille = " << c.taille() << ")" << endl;
             }
             c.vider();
