@@ -19,9 +19,9 @@ Produit::Produit(size_t no, const char *label, double prix)
 {
    if (prix < PRIX_MIN)
    {
-      throw PrixNonValide("Erreur dans Produit::Produit :\n" // + string(__func__) +
+      throw PrixNonValide("Erreur dans Produit::Produit :\n"
                           "le prix doit etre >= " +
-                          std::to_string(static_cast<int>(PRIX_MIN * 100)) + " cts !"); // à voir si créer prix min en cts déjà
+                          std::to_string(static_cast<int>(PRIX_MIN * 100)) + " cts !");
    }
    this->no = no;
    this->label = label;
