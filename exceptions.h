@@ -19,14 +19,14 @@
 
 class IndiceNonValide: public std::logic_error {
 public:
-    explicit IndiceNonValide(const std::string& s) : logic_error(s) {}
-    explicit IndiceNonValide(const char* s) : logic_error(s) {}
+    explicit IndiceNonValide(const std::string& what_arg) : logic_error(what_arg) {}
+    explicit IndiceNonValide(const char* what_arg) : logic_error(what_arg) {}
 };
 
 class PrixNonValide : public std::logic_error {
 public:
-    explicit PrixNonValide(const std::string& s) : logic_error(s) {}
-    explicit PrixNonValide(const char* s) : logic_error(s) {}
+    explicit PrixNonValide(const std::string& what_arg) : logic_error(what_arg) {}
+    explicit PrixNonValide(const char* what_arg) : logic_error(what_arg) {}
 };
 
 #endif //EXCEPTIONS_H
