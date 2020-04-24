@@ -33,4 +33,4 @@ private:
 
 Produit majorationPrixEnPourcent(Produit& p, double pourcentage);
 
-#endif //PRODUIT_H
+#endif // PRODUIT_H

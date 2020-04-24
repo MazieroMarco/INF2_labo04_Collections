@@ -35,5 +35,5 @@ private:
     Conteneur<T> data;
 };
 
-#include "collection_g_impl.h"
+#include "collectionImpl_g.h"
 #endif // COLLECTION_G_H

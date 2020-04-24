@@ -10,8 +10,8 @@
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
-#ifndef COLLECTION_G_IMPL_H
-#define COLLECTION_G_IMPL_H
+#ifndef COLLECTIONIMPL_G_H
+#define COLLECTIONIMPL_G_H
 
 #include <iterator>
 #include <algorithm>
@@ -65,4 +65,4 @@ void Collection<T, Conteneur>::parcourir(UnaryOperation operation, double coeffi
     }
 }
 
-#endif //PROJET_COLLECTION_G_IMPL_H
+#endif // COLLECTIONIMPL_G_H

@@ -36,4 +36,4 @@ public:
     explicit Prix_Non_Valide(const char* what_arg) : logic_error(what_arg) {}
 };
 
-#endif //EXCEPTIONS_H
+#endif // EXCEPTIONS_H
