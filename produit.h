@@ -14,7 +14,6 @@
 #define PRODUIT_H
 
 #include <iostream>
-#include <string>
 #include "exceptions.h"
 
 class Produit {
@@ -28,7 +27,7 @@ private:
     size_t no;
     const char* label;
     double prix; // Prix en francs
-    static const double PRIX_MIN; // Prix en francs
+    static const double PRIX_MIN; // Prix en francs, minimum autorisé pour un objet Produit
 };
 
 Produit majorationPourcentagePrix(Produit& p, double pourcentage);
