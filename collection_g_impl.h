@@ -37,7 +37,7 @@ size_t Collection<T, Conteneur>::taille() const {
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 T& Collection<T, Conteneur>::get(size_t id) {
     if (id < 0 || id >= data.size()) {
-        throw IndiceNonValide("Erreur dans Collection::get :\n"
+        throw Indice_Non_Valide("Erreur dans Collection::get :\n"
                               "n doit etre strictement plus petit que collection.size()");
     }
     return *(std::next(data.begin(), (int)id));

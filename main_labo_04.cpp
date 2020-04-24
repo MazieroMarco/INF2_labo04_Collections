@@ -29,7 +29,7 @@ int main() {
             c.vider();
             cout << c << " (taille = " << c.taille() << ")" << endl;
             cout << c.get(0) << endl;
-        } catch (const IndiceNonValide& e) {
+        } catch (const Indice_Non_Valide& e) {
             cout << e.what() << endl;
         }
         cout << "------------------------------------------------------------" << endl;
@@ -46,12 +46,12 @@ int main() {
             {
                 try {
                     Produit p2(2, "Produit 2", 0);
-                } catch (const PrixNonValide& e) {
+                } catch (const Prix_Non_Valide& e) {
                     cout << e.what() << endl;
                 }
             }
             p1.setPrix(0.0);
-        } catch (const PrixNonValide& e) {
+        } catch (const Prix_Non_Valide& e) {
             cout << e.what() << endl;
         }
         cout << "------------------------------------------------------------" << endl;
@@ -78,14 +78,14 @@ int main() {
                  << noboolalpha;
             {
                 const double majorationPrix = 10;
-                              // On parcourt la collection en majorant le prix de chacun
-                              // des produits de 10%
-                              c.parcourir(majorationPourcentagePrix, majorationPrix);
+                // On parcourt la collection en majorant le prix de chacun
+                // des produits de 10%
+                c.parcourir(majorationPrixEnPourcent, majorationPrix);
                 cout << c << " (taille = " << c.taille() << ")" << endl;
             }
             c.vider();
             cout << c << " (taille = " << c.taille() << ")" << endl;
-        } catch (const IndiceNonValide& e) {
+        } catch (const Indice_Non_Valide& e) {
             cout << e.what() << endl;
         }
         cout << "------------------------------------------------------------" << endl;
