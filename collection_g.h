@@ -4,7 +4,7 @@
  Fichier     : collection_g.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Fichier d'implémentation de la class générique Collection.
+ But         : Contient les définitions de la  de la class générique Collection.
  Remarque(s) : 
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
@@ -12,24 +12,14 @@
 #ifndef COLLECTION_G_H
 #define COLLECTION_G_H
 
-#include <vector>
 #include <algorithm>
 #include <iostream>
-#include <iterator>
 #include "exceptions.h"
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur> class Collection;
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs) {
-    os << "[";
-    for (auto it = rhs.data.begin(); it != rhs.data.end(); ++it) {
-        if (it != rhs.data.begin()) {os << ", ";}
-        os << *it;
-    }
-    os << "]";
-    return os;
-}
+std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& rhs);
 
 template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
 class Collection {
@@ -41,63 +31,11 @@ public:
     bool contient(const T& objet) const;
     void vider();
 
-    template <typename fonction>
-    void parcourir(fonction f, int maj);
+    template <typename Operation>
+    void parcourir(Operation operation, double pourcentage);
 private:
     Conteneur<T> data;
 };
 
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-void Collection<T, Conteneur>::ajouter(const T& objet) {
-    data.push_back(objet);
-}
-
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-size_t Collection<T, Conteneur>::taille() const {
-    return data.size();
-}
-
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-T& Collection<T, Conteneur>::get(size_t id) {
-    if (id < 0 || id >= data.size()) {
-        throw IndiceNonValide("Erreur dans Collection::get :\n"
-                              "n doit etre strictement plus petit que collection.size()");
-    }
-    return *(std::next(data.begin(), (int)id));
-}
-
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-bool Collection<T, Conteneur>::contient(const T& objet) const {
-    return std::find(data.begin(), data.end(), objet) != data.end();
-}
-
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-void Collection<T, Conteneur>::vider() {
-    data.clear();
-}
-
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-template<typename fonction>
-void Collection<T, Conteneur>::parcourir(fonction f, int maj) {
-    for (auto it = data.begin(); it != data.end(); ++it) {
-        f(maj, *it);
-    }
-}
-/*
-template <typename T, template <typename, typename = std::allocator<T>> class Conteneur>
-void Collection<T, Conteneur>::parcourir() {
-    for (auto it = data.begin(); it != data.end(); ++it) {
-    }
-}
-
-
-template < typename InputIterator,
-        typename OutputRandomAccessIterator,
-        typename KeyFunction >
-void countingSort( InputIterator input_first,
-                   InputIterator input_last,
-                   OutputRandomAccessIterator output_first,
-                   size_t number_of_keys,
-                   KeyFunction key )
-                   */
+#include "collection_g_impl.h"
 #endif // COLLECTION_G_H
