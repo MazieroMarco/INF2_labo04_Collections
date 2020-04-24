@@ -1,12 +1,11 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : 04
- Fichier     : collection_g_impl.h
+ Fichier     : collectionImpl_g.h
  Auteur(s)   : Dias Morais Filipe, Maziero Marco, Sciarra Daniel
  Date        : 21.04.2020
- But         : Fichier d'implémentation de la classe générique Collection.
- Remarque(s) : La fonction parcourir permet d'executer une fonction passée en paramètre
-               sur tous les éléments de la collection en y appliquant un coefficient.
+ But         : Implémentation de la classe générique Collection.
+ Remarque(s) : /
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
