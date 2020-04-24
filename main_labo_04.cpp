@@ -58,39 +58,39 @@ int main() {
         cout << endl;
     }
 
-//    {
-//        cout << "------------------------------------------------------------" << endl;
-//        cout << "Test sur Collection<Produit, list> :" << endl;
-//        try {
-//            Collection<Produit, list> c;
-//            Produit p1(1, "Produit 1", 1.55);
-//            Produit p2(2, "Produit 2", 5);
-//            c.ajouter(p1);
-//            c.ajouter(p2);
-//            cout << c << " (taille = " << c.taille() << ")" << endl;
-//            Produit tmp = c.get(0);
-//            c.get(0) = c.get(1);
-//            c.get(1) = tmp;
-//            cout << c << " (taille = " << c.taille() << ")" << endl;
-//            cout << boolalpha
-//                 << c.contient(p1) << endl
-//                 << c.contient(p2) << endl
-//                 << noboolalpha;
-//            {
-//                //< à compléter 1 >
-//                              // On parcourt la collection en majorant le prix de chacun
-//                              // des produits de 10%
-//                              //c.parcourir(< à compléter 2 >);
-//                cout << c << " (taille = " << c.taille() << ")" << endl;
-//            }
-//            c.vider();
-//            cout << c << " (taille = " << c.taille() << ")" << endl;
-//        } catch (const IndiceNonValide& e) {
-//            cout << e.what() << endl;
-//        }
-//        cout << "------------------------------------------------------------" << endl;
-//        cout << endl;
-//    }
+    {
+        cout << "------------------------------------------------------------" << endl;
+        cout << "Test sur Collection<Produit, list> :" << endl;
+        try {
+            Collection<Produit, list> c;
+            Produit p1(1, "Produit 1", 1.55);
+            Produit p2(2, "Produit 2", 5);
+            c.ajouter(p1);
+            c.ajouter(p2);
+            cout << c << " (taille = " << c.taille() << ")" << endl;
+            Produit tmp = c.get(0);
+            c.get(0) = c.get(1);
+            c.get(1) = tmp;
+            cout << c << " (taille = " << c.taille() << ")" << endl;
+            cout << boolalpha
+                 << c.contient(p1) << endl
+                 << c.contient(p2) << endl
+                 << noboolalpha;
+            {
+                const double majorationPrix = 10;
+                              // On parcourt la collection en majorant le prix de chacun
+                              // des produits de 10%
+                              c.parcourir(Produit::majorationPourcentagePrix, majorationPrix);
+                cout << c << " (taille = " << c.taille() << ")" << endl;
+            }
+            c.vider();
+            cout << c << " (taille = " << c.taille() << ")" << endl;
+        } catch (const IndiceNonValide& e) {
+            cout << e.what() << endl;
+        }
+        cout << "------------------------------------------------------------" << endl;
+        cout << endl;
+    }
 
     return EXIT_SUCCESS;
 }

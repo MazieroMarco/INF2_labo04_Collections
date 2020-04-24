@@ -11,6 +11,7 @@
  */
 
 #include "produit.h"
+#include <iomanip>
 
 const double Produit::PRIX_MIN = 0.05;
 
@@ -38,9 +39,11 @@ void Produit::setPrix(double prix)
    this->prix = prix;
 }
 
+double Produit::getPrix() const { return prix; }
+
 std::ostream &operator<<(std::ostream &os, const Produit &p)
 {
-   return os << "(" << p.no << ", \"" << p.label << "\", " << p.prix << ")";
+   return os << "(" << p.no << ", \"" << p.label << "\", " << std::setprecision(2) << std::fixed << p.prix << ")";
 }
 
 bool operator==(const Produit& p1, const Produit& p2) {
@@ -49,10 +52,10 @@ bool operator==(const Produit& p1, const Produit& p2) {
             p1.prix == p2.prix);
 }
 
-void Produit::majorationPourcentagePrix(const double &pourcentage)
+void Produit::majorationPourcentagePrix(double pourcentage, Produit& p)
 {
    if (pourcentage > 0.0)
    {
-      prix += prix / 100.0 * pourcentage;
+       p.setPrix(p.getPrix() * (1 + pourcentage / 100));
    }
 }
