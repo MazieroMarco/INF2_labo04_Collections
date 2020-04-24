@@ -21,8 +21,7 @@ Produit::Produit(size_t no, const char *label, double prix) {
    if (prix < PRIX_MIN) {
       throw Prix_Non_Valide("Erreur dans Produit::Produit :\n"
                             "le prix doit etre >= " +
-                            std::to_string(static_cast<unsigned>
-                            (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
+                            std::to_string(static_cast<unsigned> (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
                             + " cts !");
    }
    this->no = no;
@@ -34,8 +33,7 @@ void Produit::setPrix(double prix) {
    if (prix < PRIX_MIN) {
       throw Prix_Non_Valide("Erreur dans Produit::setPrix :\n"
                             "le prix doit etre >= " +
-                            std::to_string(static_cast<unsigned>
-                            (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
+                            std::to_string(static_cast<unsigned> (PRIX_MIN * NB_CENTIMES_DANS_FRANC))
                             + " cts !");
    }
    this->prix = prix;
