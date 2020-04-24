@@ -7,10 +7,10 @@
  But         : Implémentation de la classe générique Collection.
 
  Remarque(s) : Spécificités de l'implémentation :
-                - La fonction std::next() de la librairie <algorithm> est utilisée
-                  pour récupérer un élément à une position spécifique dans le conteneur.
                 - Les itérateurs sont utilisés dans ce contexte car les conteneurs
                   peuvent être de différents types (par ex. vector ou list).
+                - La fonction std::next() de la librairie <algorithm> est utilisée
+                  pour récupérer un élément à une position spécifique dans le conteneur.
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
